@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.logging.Logger;
 
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.methods.response.Web3ClientVersion;
@@ -12,19 +13,22 @@ import org.web3j.protocol.http.HttpService;
  */
 public class AccessContract {
 
+	private Logger logger;
+
 	public AccessContract(){
+		logger = Logger.getLogger(this.getClass().getName());
 	}
 
 	public static void main (String[] args)  { 
-		org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(AccessContract.class);
 		Web3j web3 = Web3j.build(new HttpService());  // defaults to http://localhost:8545/
 		Web3ClientVersion web3ClientVersion;
+		AccessContract accessContract = new AccessContract();
 		try {
 			web3ClientVersion = web3.web3ClientVersion().send();
 			String clientVersion = web3ClientVersion.getWeb3ClientVersion();
-			System.out.println("Client version = " + clientVersion);
+			accessContract.logger.info("Client version = " + clientVersion);
 		} catch (IOException e) {
-			logger.error(e.getMessage());
+			accessContract.logger.warning(e.getMessage());
 		}
 
 	}
