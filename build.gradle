@@ -34,3 +34,30 @@ dependencies {
 // Define the main class for the application
 mainClassName = 'AccessContract'
 
+
+task solidityOutputDirectory(type: Exec) {
+    commandLine("sh", "-c",
+            "mkdir -p " + solidityBinDir
+    )
+}
+
+task solidityCleanBinary(type: Exec, dependsOn: solidityOutputDirectory) {
+    commandLine("sh", "-c",
+            "rm -Rf " + solidityBinDir + "/*"
+    )
+}
+
+task solidity2binary(type: Exec, dependsOn: solidityCleanBinary) {
+    commandLine("sh", "-c",
+            "solc src/main/solidity/simple-contract/contracts/ProofOfExistence1.sol --bin  --abi --optimize -o " + solidityBinDir
+    )
+}
+
+task solidity2java(type: Exec, dependsOn: solidity2binary) {
+    commandLine("sh", "-c",
+            "web3j solidity generate --javaTypes " + solidityBinDir + "/ProofOfExistence1.bin " + solidityBinDir + "/ProofOfExistence1.abi -o " + solidityJavaDir + " -p " + javaPackage 
+    )
+}
+
+
+build.dependsOn solidity2java

@@ -18,3 +18,8 @@ Don't forget to install command line tools. Please see [Web3j command line tools
 
 
 # Usage
+
+To compile and install :
+```
+grade build
+```
