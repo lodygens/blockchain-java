@@ -7,7 +7,8 @@ This tutorial uses smart contract tutorial and the Web3j library.
 ## Smart contracts
 We will use smart contracts as introduced  in [The Hitchhiker’s Guide to Smart Contracts in Ethereum](https://blog.zeppelin.solutions/the-hitchhikers-guide-to-smart-contracts-in-ethereum-848f08001f05).
 
-Don't forget to install all expected tools and examples. Our java program will interact with these smart contracts.
+Don't forget to install all expected tools. 
+In order to ease this tutorial, we provide a smart contract, copied from The Hitchhiker’s Guide, in the [src/main/solidity/simple-contract](src/main/solidity/simple-contract) directory.
 
 ## Web3j
 The Web3j library permits to interact with blockchain from java program.
