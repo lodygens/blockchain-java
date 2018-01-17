@@ -14,7 +14,7 @@ In order to ease this tutorial, we provide a smart contract, copied from The Hit
 The Web3j library permits to interact with blockchain from java program.
 
 The library is available from their web site: [Web3j](https://web3j.io).
-Don't forget to install command line tools. Please see [Web3j command line tools](https://docs.web3j.io/command_line.html).
+Don't forget to install the [Web3j command line tools](https://docs.web3j.io/command_line.html).
 
 
 # Usage
