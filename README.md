@@ -1,14 +1,15 @@
 # blockchain-java
-a simple project to access blockchain ethereum from java with web3j
+A simple project to access blockchain ethereum from java with web3j
 
 # Requirements
-This tutorial uses smart contract tutorial and the Web3j library.
 
-## Smart contracts
-We will use smart contracts as introduced  in [The Hitchhiker’s Guide to Smart Contracts in Ethereum](https://blog.zeppelin.solutions/the-hitchhikers-guide-to-smart-contracts-in-ethereum-848f08001f05).
+Ethereum client and Web3j must be locally installed
 
-Don't forget to install all expected tools. 
-In order to ease this tutorial, we provide a smart contract, copied from The Hitchhiker’s Guide, in the [src/main/solidity/simple-contract](src/main/solidity/simple-contract) directory.
+## Ethereum client
+
+Please follow [The Hitchhiker’s Guide to Smart Contracts in Ethereum](https://blog.zeppelin.solutions/the-hitchhikers-guide-to-smart-contracts-in-ethereum-848f08001f05) to install all expected tools.
+ 
+In order to ease this tutorial, this repository includes the smart contract from The Hitchhiker’s Guide, in the [src/main/solidity/simple-contract](src/main/solidity/simple-contract) directory.
 
 ## Web3j
 The Web3j library permits to interact with blockchain from java program.
