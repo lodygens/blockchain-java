@@ -23,7 +23,7 @@
           "type": "string"
         }
       ],
-      "name": "calculateProof",
+      "name": "proofFor",
       "outputs": [
         {
           "name": "",
@@ -49,18 +49,18 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b6102408061001e6000396000f300606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680637183616c1461005c57806376dbd108146100b9578063faf924cf14610132575b600080fd5b341561006757600080fd5b6100b7600480803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091905050610163565b005b34156100c457600080fd5b610114600480803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091905050610179565b60405180826000191660001916815260200191505060405180910390f35b341561013d57600080fd5b61014561020e565b60405180826000191660001916815260200191505060405180910390f35b61016c81610179565b6000816000191690555050565b60006002826000604051602001526040518082805190602001908083835b6020831015156101bc5780518252602082019150602081019050602083039250610197565b6001836020036101000a03801982511681845116808217855250505050505090500191505060206040518083038160008661646e5a03f115156101fe57600080fd5b5050604051805190509050919050565b600054815600a165627a7a723058203a21465eae7d9eeee41776212db91d4021ea71f582866bcbf3a53514fb2c29de0029",
-  "deployedBytecode": "0x606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680637183616c1461005c57806376dbd108146100b9578063faf924cf14610132575b600080fd5b341561006757600080fd5b6100b7600480803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091905050610163565b005b34156100c457600080fd5b610114600480803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091905050610179565b60405180826000191660001916815260200191505060405180910390f35b341561013d57600080fd5b61014561020e565b60405180826000191660001916815260200191505060405180910390f35b61016c81610179565b6000816000191690555050565b60006002826000604051602001526040518082805190602001908083835b6020831015156101bc5780518252602082019150602081019050602083039250610197565b6001836020036101000a03801982511681845116808217855250505050505090500191505060206040518083038160008661646e5a03f115156101fe57600080fd5b5050604051805190509050919050565b600054815600a165627a7a723058203a21465eae7d9eeee41776212db91d4021ea71f582866bcbf3a53514fb2c29de0029",
-  "sourceMap": "67:400:3:-;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "67:400:3:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;212:80;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;366:99;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;111:20;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;212:80;263:24;278:8;263:14;:24::i;:::-;255:5;:32;;;;;;;212:80;:::o;366:99::-;425:7;444:16;451:8;444:16;;;;;;;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:2;51:6;36:153;;;182:3;176:5;171:3;164:6;98:2;93:3;89;82:19;;123:2;118:3;114;107:19;;148:2;143:3;139;132:19;;36:153;;;274:1;267:3;263:2;259:3;254;250;246;315:4;311:3;305;299:5;295:3;356:4;350:3;344:5;340:3;389:7;380;377:2;372:3;365:6;3:399;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;437:23:3;;366:99;;;:::o;111:20::-;;;;:::o",
-  "source": "pragma solidity ^0.4.2;\n\n// Proof of Existence contract, version 1\ncontract ProofOfExistence1 {\n  // state\n    bytes32 public proof;\n\n// calculate and store the proof for a document\n// *transactional function*\n  function notarize(string document) {\n      proof = calculateProof(document);\n  }\n\n// helper function to get a document's sha256\n// *read-only function*\n  function calculateProof(string document) constant returns (bytes32) {\n\treturn sha256(document);\n  }\n}\n",
-  "sourcePath": "/Users/mboleg/dev/github/lodygens/web3j-contract/src/main/solidity/simple-contract/contracts/ProofOfExistence1.sol",
+  "bytecode": "0x6060604052341561000f57600080fd5b6102408061001e6000396000f300606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680637183616c1461005c578063f6c1acdf146100b9578063faf924cf14610132575b600080fd5b341561006757600080fd5b6100b7600480803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091905050610163565b005b34156100c457600080fd5b610114600480803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091905050610179565b60405180826000191660001916815260200191505060405180910390f35b341561013d57600080fd5b61014561020e565b60405180826000191660001916815260200191505060405180910390f35b61016c81610179565b6000816000191690555050565b60006002826000604051602001526040518082805190602001908083835b6020831015156101bc5780518252602082019150602081019050602083039250610197565b6001836020036101000a03801982511681845116808217855250505050505090500191505060206040518083038160008661646e5a03f115156101fe57600080fd5b5050604051805190509050919050565b600054815600a165627a7a72305820e966716d7e1e9c7ffd35cd1795685cddf609ec1ce1ac37a0cc601bb57b3970ca0029",
+  "deployedBytecode": "0x606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680637183616c1461005c578063f6c1acdf146100b9578063faf924cf14610132575b600080fd5b341561006757600080fd5b6100b7600480803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091905050610163565b005b34156100c457600080fd5b610114600480803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091905050610179565b60405180826000191660001916815260200191505060405180910390f35b341561013d57600080fd5b61014561020e565b60405180826000191660001916815260200191505060405180910390f35b61016c81610179565b6000816000191690555050565b60006002826000604051602001526040518082805190602001908083835b6020831015156101bc5780518252602082019150602081019050602083039250610197565b6001836020036101000a03801982511681845116808217855250505050505090500191505060206040518083038160008661646e5a03f115156101fe57600080fd5b5050604051805190509050919050565b600054815600a165627a7a72305820e966716d7e1e9c7ffd35cd1795685cddf609ec1ce1ac37a0cc601bb57b3970ca0029",
+  "sourceMap": "67:391:0:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "67:391:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;212:74;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;360:96;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;111:20;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;212:74;263:18;272:8;263;:18::i;:::-;255:5;:26;;;;;;;212:74;:::o;360:96::-;413:7;435:16;442:8;435:16;;;;;;;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:2;51:6;36:153;;;182:3;176:5;171:3;164:6;98:2;93:3;89;82:19;;123:2;118:3;114;107:19;;148:2;143:3;139;132:19;;36:153;;;274:1;267:3;263:2;259:3;254;250;246;315:4;311:3;305;299:5;295:3;356:4;350:3;344:5;340:3;389:7;380;377:2;372:3;365:6;3:399;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;428:23:0;;360:96;;;:::o;111:20::-;;;;:::o",
+  "source": "pragma solidity ^0.4.2;\n\n// Proof of Existence contract, version 1\ncontract ProofOfExistence1 {\n  // state\n    bytes32 public proof;\n\n// calculate and store the proof for a document\n// *transactional function*\n  function notarize(string document) {\n      proof = proofFor(document);\n  }\n\n// helper function to get a document's sha256\n// *read-only function*\n  function proofFor(string document) constant returns (bytes32) {\n    return sha256(document);\n  }\n}\n",
+  "sourcePath": "/Users/mboleg/dev/github/lodygens/blockchain-java/src/main/solidity/simple-contract/contracts/ProofOfExistence1.sol",
   "ast": {
     "attributes": {
-      "absolutePath": "/Users/mboleg/dev/github/lodygens/web3j-contract/src/main/solidity/simple-contract/contracts/ProofOfExistence1.sol",
+      "absolutePath": "/Users/mboleg/dev/github/lodygens/blockchain-java/src/main/solidity/simple-contract/contracts/ProofOfExistence1.sol",
       "exportedSymbols": {
         "ProofOfExistence1": [
-          198
+          28
         ]
       }
     },
@@ -74,9 +74,9 @@
             ".2"
           ]
         },
-        "id": 171,
+        "id": 1,
         "name": "PragmaDirective",
-        "src": "0:23:3"
+        "src": "0:23:0"
       },
       {
         "attributes": {
@@ -90,17 +90,17 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            198
+            28
           ],
           "name": "ProofOfExistence1",
-          "scope": 199
+          "scope": 29
         },
         "children": [
           {
             "attributes": {
               "constant": false,
               "name": "proof",
-              "scope": 198,
+              "scope": 28,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "bytes32",
@@ -113,14 +113,14 @@
                   "name": "bytes32",
                   "type": "bytes32"
                 },
-                "id": 172,
+                "id": 2,
                 "name": "ElementaryTypeName",
-                "src": "111:7:3"
+                "src": "111:7:0"
               }
             ],
-            "id": 173,
+            "id": 3,
             "name": "VariableDeclaration",
-            "src": "111:20:3"
+            "src": "111:20:0"
           },
           {
             "attributes": {
@@ -132,7 +132,7 @@
               ],
               "name": "notarize",
               "payable": false,
-              "scope": 198,
+              "scope": 28,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -144,7 +144,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "document",
-                      "scope": 185,
+                      "scope": 15,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "string memory",
@@ -157,19 +157,19 @@
                           "name": "string",
                           "type": "string storage pointer"
                         },
-                        "id": 174,
+                        "id": 4,
                         "name": "ElementaryTypeName",
-                        "src": "230:6:3"
+                        "src": "230:6:0"
                       }
                     ],
-                    "id": 175,
+                    "id": 5,
                     "name": "VariableDeclaration",
-                    "src": "230:15:3"
+                    "src": "230:15:0"
                   }
                 ],
-                "id": 176,
+                "id": 6,
                 "name": "ParameterList",
-                "src": "229:17:3"
+                "src": "229:17:0"
               },
               {
                 "attributes": {
@@ -178,9 +178,9 @@
                   ]
                 },
                 "children": [],
-                "id": 177,
+                "id": 7,
                 "name": "ParameterList",
-                "src": "247:0:3"
+                "src": "247:0:0"
               },
               {
                 "children": [
@@ -203,13 +203,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 173,
+                              "referencedDeclaration": 3,
                               "type": "bytes32",
                               "value": "proof"
                             },
-                            "id": 178,
+                            "id": 8,
                             "name": "Identifier",
-                            "src": "255:5:3"
+                            "src": "255:5:0"
                           },
                           {
                             "attributes": {
@@ -237,13 +237,13 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 197,
+                                  "referencedDeclaration": 27,
                                   "type": "function (string memory) view returns (bytes32)",
-                                  "value": "calculateProof"
+                                  "value": "proofFor"
                                 },
-                                "id": 179,
+                                "id": 9,
                                 "name": "Identifier",
-                                "src": "263:14:3"
+                                "src": "263:8:0"
                               },
                               {
                                 "attributes": {
@@ -251,38 +251,38 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 175,
+                                  "referencedDeclaration": 5,
                                   "type": "string memory",
                                   "value": "document"
                                 },
-                                "id": 180,
+                                "id": 10,
                                 "name": "Identifier",
-                                "src": "278:8:3"
+                                "src": "272:8:0"
                               }
                             ],
-                            "id": 181,
+                            "id": 11,
                             "name": "FunctionCall",
-                            "src": "263:24:3"
+                            "src": "263:18:0"
                           }
                         ],
-                        "id": 182,
+                        "id": 12,
                         "name": "Assignment",
-                        "src": "255:32:3"
+                        "src": "255:26:0"
                       }
                     ],
-                    "id": 183,
+                    "id": 13,
                     "name": "ExpressionStatement",
-                    "src": "255:32:3"
+                    "src": "255:26:0"
                   }
                 ],
-                "id": 184,
+                "id": 14,
                 "name": "Block",
-                "src": "247:45:3"
+                "src": "247:39:0"
               }
             ],
-            "id": 185,
+            "id": 15,
             "name": "FunctionDefinition",
-            "src": "212:80:3"
+            "src": "212:74:0"
           },
           {
             "attributes": {
@@ -292,9 +292,9 @@
               "modifiers": [
                 null
               ],
-              "name": "calculateProof",
+              "name": "proofFor",
               "payable": false,
-              "scope": 198,
+              "scope": 28,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -306,7 +306,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "document",
-                      "scope": 197,
+                      "scope": 27,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "string memory",
@@ -319,19 +319,19 @@
                           "name": "string",
                           "type": "string storage pointer"
                         },
-                        "id": 186,
+                        "id": 16,
                         "name": "ElementaryTypeName",
-                        "src": "390:6:3"
+                        "src": "378:6:0"
                       }
                     ],
-                    "id": 187,
+                    "id": 17,
                     "name": "VariableDeclaration",
-                    "src": "390:15:3"
+                    "src": "378:15:0"
                   }
                 ],
-                "id": 188,
+                "id": 18,
                 "name": "ParameterList",
-                "src": "389:17:3"
+                "src": "377:17:0"
               },
               {
                 "children": [
@@ -339,7 +339,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 197,
+                      "scope": 27,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes32",
@@ -352,25 +352,25 @@
                           "name": "bytes32",
                           "type": "bytes32"
                         },
-                        "id": 189,
+                        "id": 19,
                         "name": "ElementaryTypeName",
-                        "src": "425:7:3"
+                        "src": "413:7:0"
                       }
                     ],
-                    "id": 190,
+                    "id": 20,
                     "name": "VariableDeclaration",
-                    "src": "425:7:3"
+                    "src": "413:7:0"
                   }
                 ],
-                "id": 191,
+                "id": 21,
                 "name": "ParameterList",
-                "src": "424:9:3"
+                "src": "412:9:0"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 191
+                      "functionReturnParameters": 21
                     },
                     "children": [
                       {
@@ -399,13 +399,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 217,
+                              "referencedDeclaration": 47,
                               "type": "function () pure returns (bytes32)",
                               "value": "sha256"
                             },
-                            "id": 192,
+                            "id": 22,
                             "name": "Identifier",
-                            "src": "444:6:3"
+                            "src": "435:6:0"
                           },
                           {
                             "attributes": {
@@ -413,43 +413,43 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 187,
+                              "referencedDeclaration": 17,
                               "type": "string memory",
                               "value": "document"
                             },
-                            "id": 193,
+                            "id": 23,
                             "name": "Identifier",
-                            "src": "451:8:3"
+                            "src": "442:8:0"
                           }
                         ],
-                        "id": 194,
+                        "id": 24,
                         "name": "FunctionCall",
-                        "src": "444:16:3"
+                        "src": "435:16:0"
                       }
                     ],
-                    "id": 195,
+                    "id": 25,
                     "name": "Return",
-                    "src": "437:23:3"
+                    "src": "428:23:0"
                   }
                 ],
-                "id": 196,
+                "id": 26,
                 "name": "Block",
-                "src": "434:31:3"
+                "src": "422:34:0"
               }
             ],
-            "id": 197,
+            "id": 27,
             "name": "FunctionDefinition",
-            "src": "366:99:3"
+            "src": "360:96:0"
           }
         ],
-        "id": 198,
+        "id": 28,
         "name": "ContractDefinition",
-        "src": "67:400:3"
+        "src": "67:391:0"
       }
     ],
-    "id": 199,
+    "id": 29,
     "name": "SourceUnit",
-    "src": "0:468:3"
+    "src": "0:459:0"
   },
   "compiler": {
     "name": "solc",
@@ -471,8 +471,18 @@
       "events": {},
       "links": {},
       "address": "0x2da3b5369e44e6576f6064929028808e062dfe3b"
+    },
+    "1516119988022": {
+      "events": {},
+      "links": {},
+      "address": "0x6425920d98b025654cce6b68fb3840f3e5b919c6"
+    },
+    "1516286508817": {
+      "events": {},
+      "links": {},
+      "address": "0x53028e5fe0a77907029a11ea3b3ee9b562decdea"
     }
   },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-01-16T11:12:51.307Z"
+  "updatedAt": "2018-01-18T14:52:28.476Z"
 }

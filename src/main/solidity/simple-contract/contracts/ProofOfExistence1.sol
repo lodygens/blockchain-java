@@ -8,12 +8,12 @@ contract ProofOfExistence1 {
 // calculate and store the proof for a document
 // *transactional function*
   function notarize(string document) {
-      proof = calculateProof(document);
+      proof = proofFor(document);
   }
 
 // helper function to get a document's sha256
 // *read-only function*
-  function calculateProof(string document) constant returns (bytes32) {
-	return sha256(document);
+  function proofFor(string document) constant returns (bytes32) {
+    return sha256(document);
   }
 }

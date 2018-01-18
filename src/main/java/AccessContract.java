@@ -1,6 +1,10 @@
 import java.io.IOException;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.web3j.crypto.CipherException;
+import org.web3j.crypto.Credentials;
+import org.web3j.crypto.WalletUtils;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.methods.response.Web3ClientVersion;
 import org.web3j.protocol.http.HttpService;
@@ -14,22 +18,46 @@ import org.web3j.protocol.http.HttpService;
 public class AccessContract {
 
 	private Logger logger;
+	private static final String walletPath = "/Users/mboleg/Library/Ethereum/testnet/keystore/UTC--2018-01-18T13-16-51.283000000Z--8e1b391cc1c7d225c8200d4d6ab467ef2548323c.json";
+	private static final String walletPwd = "toto";
+	private Web3j web3;
+	private Credentials credentials;
 
 	public AccessContract(){
 		logger = Logger.getLogger(this.getClass().getName());
+		web3 = Web3j.build(new HttpService());  // defaults to http://localhost:8545/
+		credentials = null;
 	}
 
-	public static void main (String[] args)  { 
-		Web3j web3 = Web3j.build(new HttpService());  // defaults to http://localhost:8545/
+	private void checkVersion() {
 		Web3ClientVersion web3ClientVersion;
-		AccessContract accessContract = new AccessContract();
 		try {
 			web3ClientVersion = web3.web3ClientVersion().send();
-			String clientVersion = web3ClientVersion.getWeb3ClientVersion();
-			accessContract.logger.info("Client version = " + clientVersion);
+			final String clientVersion = web3ClientVersion.getWeb3ClientVersion();
+			logger.log(Level.INFO, "Client version " + clientVersion);
 		} catch (IOException e) {
-			accessContract.logger.warning(e.getMessage());
+			logger.warning(e.getMessage());
+			System.exit(1);
+		}
+	}
+
+	private void getCredentials() {
+		try {
+			credentials = WalletUtils.loadCredentials(
+					walletPwd,
+					walletPath);
+			logger.log(Level.INFO, "Credentials " + credentials.getAddress());
+		} catch (IOException | CipherException e) {
+			logger.warning(e.getMessage());
+			System.exit(1);
 		}
 
+	}
+
+	public static void main (String[] args)  {
+
+		final AccessContract accessContract = new AccessContract();
+		accessContract.checkVersion();
+		accessContract.getCredentials();
 	}
 }
