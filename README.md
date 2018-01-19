@@ -36,7 +36,11 @@ web3j wallet create
 ```
 
 
-## Start a Geth local network
+## Test the contract
+
+### Start a Geth local network
+
+First start a geth node
 
 Please see https://github.com/iExecBlockchainComputing/PoCo/blob/master/v2plan/README.md#choice-2--prepare-local-geth-node
 
@@ -44,8 +48,7 @@ Please see https://github.com/iExecBlockchainComputing/PoCo/blob/master/v2plan/R
 https://github.com/iExecBlockchainComputing/PoCo/blob/master/v2plan/README.md#choice-2--prepare-local-geth-node
 ```
 
-## Test the contract
-
+### Test with truffle
 ```
 truffle console
 
