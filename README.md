@@ -36,6 +36,33 @@ web3j wallet create
 ```
 
 
+## Start a Geth local network
+
+Please see https://github.com/iExecBlockchainComputing/PoCo/blob/master/v2plan/README.md#choice-2--prepare-local-geth-node
+
+```
+https://github.com/iExecBlockchainComputing/PoCo/blob/master/v2plan/README.md#choice-2--prepare-local-geth-node
+```
+
+## Test the contract
+
+```
+truffle console
+
+truffle(development)> var poe = ProofOfExistence3.at(ProofOfExistence3.address)
+undefined
+
+truffle(development)> poe.checkDocument('hello')
+false
+
+truffle(development)> poe.notarize('hello')
+...
+
+truffle(development)> poe.checkDocument('hello')
+true
+
+```
+
 ## Run
 
 To run :
