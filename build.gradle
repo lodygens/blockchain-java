@@ -6,6 +6,11 @@
  * user guide available at https://docs.gradle.org/4.4.1/userguide/tutorial_java_projects.html
  */
 
+
+    plugins {
+    id "com.github.johnrengelman.shadow" version "1.2.3"
+    }
+
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 
@@ -49,15 +54,16 @@ task solidityCleanBinary(type: Exec, dependsOn: solidityOutputDirectory) {
 
 task solidity2binary(type: Exec, dependsOn: solidityCleanBinary) {
     commandLine("sh", "-c",
-            "solc src/main/solidity/simple-contract/contracts/ProofOfExistence1.sol --bin  --abi --optimize -o " + solidityBinDir
+            "solc src/main/solidity/simple-contract/contracts/" + contractName + ".sol --bin  --abi --optimize -o " + solidityBinDir
     )
 }
 
 task solidity2java(type: Exec, dependsOn: solidity2binary) {
     commandLine("sh", "-c",
-            "web3j solidity generate --javaTypes " + solidityBinDir + "/ProofOfExistence1.bin " + solidityBinDir + "/ProofOfExistence1.abi -o " + solidityJavaDir + " -p " + javaPackage 
+            "web3j solidity generate --javaTypes " + solidityBinDir + "/" + contractName + ".bin " + solidityBinDir + "/" + contractName + ".abi -o " + solidityJavaDir + " -p " + javaPackage 
     )
 }
 
 
 build.dependsOn solidity2java
+shadowJar.dependsOn solidity2java
