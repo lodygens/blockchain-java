@@ -20,7 +20,25 @@ Don't forget to install the [Web3j command line tools](https://docs.web3j.io/com
 
 # Usage
 
+## Install
+
 To compile and install :
 ```
-grade build
+grade shadowJar
+```
+
+
+## Create a wallet
+
+To create a wallet :
+```
+web3j wallet create
+```
+
+
+## Run
+
+To run :
+```
+java -cp java -cp build/libs/web3j-contract-all.jar AccessContract  yourWalletFilePath yourWalletPassword anyString
 ```
