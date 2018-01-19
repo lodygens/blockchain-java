@@ -45,7 +45,7 @@ First start a geth node
 Please see https://github.com/iExecBlockchainComputing/PoCo/blob/master/v2plan/README.md#choice-2--prepare-local-geth-node
 
 ```
-https://github.com/iExecBlockchainComputing/PoCo/blob/master/v2plan/README.md#choice-2--prepare-local-geth-node
+docker run -d --name iexec-geth-local --entrypoint=./startupGeth.sh -p 8545:8545 iexechub/iexec-geth-local
 ```
 
 ### Test with truffle
