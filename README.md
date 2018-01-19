@@ -49,6 +49,7 @@ docker run -d --name iexec-geth-local --entrypoint=./startupGeth.sh -p 8545:8545
 
 ### Test with truffle
 ```
+truffle migrate
 truffle console
 
 truffle(development)> var poe = ProofOfExistence3.at(ProofOfExistence3.address)
