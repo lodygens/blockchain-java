@@ -7,6 +7,7 @@ import org.web3j.crypto.CipherException;
 import org.web3j.crypto.Credentials;
 import org.web3j.crypto.WalletUtils;
 import org.web3j.protocol.Web3j;
+import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.protocol.core.methods.response.Web3ClientVersion;
 import org.web3j.protocol.http.HttpService;
 
@@ -56,12 +57,29 @@ public class AccessContract {
 			System.exit(1);
 		}
 	}
+
 	void loadContract(final String addr) {
 		proofOfExistence3 = ProofOfExistence3.load(addr, web3, credentials, BigInteger.valueOf(1000), BigInteger.valueOf(1000));
 	}
-	
-	private void checkDocument(final String doc) {
-		logger.info(proofOfExistence3.checkDocument(doc).toString());
+
+	private void checkDocument(final String doc)  {
+		Boolean b;
+		try {
+			b = proofOfExistence3.checkDocument(doc).send();
+			logger.info("checkDocument " + b.toString());
+		} catch (Exception e) {
+			logger.warning("checkDocument " + e.getMessage());
+		}
+	}
+
+	private void notarize(final String doc) {
+		TransactionReceipt receipt;
+		try {
+			receipt = proofOfExistence3.notarize(doc).send();
+			logger.info("checkDocument " + receipt.toString());
+		} catch (Exception e) {
+			logger.warning("notarize : " + e.getMessage());
+		}
 	}
 
 	public static void main (String[] args)  {
@@ -69,7 +87,7 @@ public class AccessContract {
 		final AccessContract accessContract = new AccessContract();
 		accessContract.checkVersion();
 		if(args.length < 1) {
-			accessContract.logger.info("Usage : java AccessControl path password address");
+			accessContract.logger.info("Usage : java AccessControl path password address aText");
 			System.exit(0);
 		}
 		accessContract.getCredentials(args[0], args[1]);
@@ -78,5 +96,12 @@ public class AccessContract {
 			System.exit(0);
 		}
 		accessContract.loadContract(args[2]);
+		if(args.length < 4) {
+			accessContract.logger.info("No string provided");
+			System.exit(0);
+		}
+		accessContract.checkDocument(args[3]);
+		accessContract.notarize(args[3]);
+		accessContract.checkDocument(args[3]);
 	}
 }
