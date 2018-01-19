@@ -60,6 +60,7 @@ public class AccessContract {
 
 	void loadContract(final String addr) {
 		proofOfExistence3 = ProofOfExistence3.load(addr, web3, credentials, BigInteger.valueOf(1000), BigInteger.valueOf(1000));
+		logger.log(Level.INFO, "Contract address " + proofOfExistence3.getContractAddress());
 	}
 
 	private void checkDocument(final String doc)  {
@@ -86,13 +87,13 @@ public class AccessContract {
 
 		final AccessContract accessContract = new AccessContract();
 		accessContract.checkVersion();
-		if(args.length < 1) {
-			accessContract.logger.info("Usage : java AccessControl path password address aText");
+		if(args.length < 2) {
+			accessContract.logger.info("Usage : java AccessControl path password address");
 			System.exit(0);
 		}
 		accessContract.getCredentials(args[0], args[1]);
 		if(args.length < 3) {
-			accessContract.logger.info("No smart contract address provided");
+			accessContract.logger.info("Usage : java AccessControl path password address a_text");
 			System.exit(0);
 		}
 		accessContract.loadContract(args[2]);
