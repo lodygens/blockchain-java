@@ -48,7 +48,7 @@ web3j wallet create
 geth --exec "eth.sendTransaction({from:eth.accounts[0], to:'YOUR_ADDRESS', value: web3.toWei(5, 'ether')})" attach http://localhost:8545
 ```
 
-## Verfify you balance
+## Verfify your balance
 ```
 $> node 
 > var Web3 = require('web3');
