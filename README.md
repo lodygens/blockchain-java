@@ -18,9 +18,8 @@ The library is available from their web site: [Web3j](https://web3j.io).
 Don't forget to install the [Web3j command line tools](https://docs.web3j.io/command_line.html).
 
 
-# Usage
 
-## Install
+# Install
 
 To compile and install :
 ```
@@ -28,17 +27,7 @@ grade shadowJar
 ```
 
 
-## Create a wallet
-
-To create a wallet :
-```
-web3j wallet create
-```
-
-
-## Test the contract
-
-### Start a Geth local network
+# Start a Geth local network
 
 First start a geth node
 
@@ -47,7 +36,33 @@ First start a geth node
 docker run -d --name iexec-geth-local --entrypoint=./startupGeth.sh -p 8545:8545 iexechub/iexec-geth-local
 ```
 
-### Test with truffle
+# Create a wallet
+
+To create a wallet :
+```
+web3j wallet create
+```
+
+## Get some coins
+```
+geth --exec "eth.sendTransaction({from:eth.accounts[0], to:'YOUR_ADDRESS', value: web3.toWei(5, 'ether')})" attach http://localhost:8545
+```
+
+## Verfify you balance
+```
+$> node 
+> var Web3 = require('web3');
+undefined
+> var web3 = new Web3();
+undddefined
+> web3.setProvider(new web3.providers.HttpProvider());
+> web3.eth.getBalance('YOUR_ADDRESS');
+BigNumber { s: 1, e: 18, c: [ 50000 ] }
+
+```
+
+
+# Test with truffle
 ```
 truffle migrate
 truffle console
@@ -66,7 +81,7 @@ true
 
 ```
 
-## Run
+# Run
 
 To run :
 ```
