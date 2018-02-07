@@ -33,7 +33,7 @@ First start a geth node
 
 
 ```
-docker run -d --name iexec-geth-local --entrypoint=./startupGeth.sh -p 8545:8545 iexechub/iexec-geth-local
+docker run -d --rm --name iexec-geth-local --entrypoint=./startupGeth.sh -p 8545:8545 iexechub/iexec-geth-local
 ```
 
 # Create a wallet
